@@ -1,0 +1,114 @@
+{
+"annotations": {
+"list": \[
+{
+"builtIn": 1,
+"datasource": "-- Grafana --",
+"enable": true,
+"hide": true,
+"iconColor": "#e7e7e7",
+"name": "Annotations & Alerts",
+"type": "dashboard"
+}
+]
+},
+"editable": true,
+"gnetId": null,
+"graphTooltip": 0,
+"id": null,
+"iteration": 1695049770634,
+"links": \[],
+"panels": \[
+{
+"datasource": "Prometheus",
+"type": "graph",
+"title": "HTTP Requests per Second",
+"targets": \[
+{
+"expr": "rate(http\_requests\_total\[1m])",
+"legendFormat": "{{method}} {{endpoint}}",
+"refId": "A"
+}
+],
+"gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}
+},
+{
+"datasource": "Prometheus",
+"type": "graph",
+"title": "Average Response Time per Endpoint (s)",
+"targets": \[
+{
+"expr": "http\_response\_duration\_seconds\_sum / http\_response\_duration\_seconds\_count",
+"legendFormat": "{{endpoint}}",
+"refId": "A"
+}
+],
+"gridPos": {"h": 8, "w": 12, "x": 12, "y": 0}
+},
+{
+"datasource": "Prometheus",
+"type": "graph",
+"title": "CPU Usage (per core)",
+"targets": \[
+{
+"expr": "rate(node\_cpu\_seconds\_total{mode!='idle'}\[1m])",
+"legendFormat": "{{cpu}}",
+"refId": "A"
+}
+],
+"gridPos": {"h": 6, "w": 12, "x": 0, "y": 8}
+},
+{
+"datasource": "Prometheus",
+"type": "graph",
+"title": "Memory Available",
+"targets": \[
+{
+"expr": "node\_memory\_MemAvailable\_bytes",
+"legendFormat": "available",
+"refId": "A"
+}
+],
+"gridPos": {"h": 6, "w": 12, "x": 12, "y": 8}
+},
+{
+"datasource": "Prometheus",
+"type": "graph",
+"title": "Disk Space Available",
+"targets": \[
+{
+"expr": "node\_filesystem\_avail\_bytes",
+"legendFormat": "{{mountpoint}}",
+"refId": "A"
+}
+],
+"gridPos": {"h": 6, "w": 12, "x": 0, "y": 14}
+},
+{
+"datasource": "Prometheus",
+"type": "graph",
+"title": "Network Traffic (Bytes/sec)",
+"targets": \[
+{
+"expr": "rate(node\_network\_receive\_bytes\_total\[1m])",
+"legendFormat": "receive {{device}}",
+"refId": "A"
+},
+{
+"expr": "rate(node\_network\_transmit\_bytes\_total\[1m])",
+"legendFormat": "transmit {{device}}",
+"refId": "B"
+}
+],
+"gridPos": {"h": 6, "w": 12, "x": 12, "y": 14}
+}
+],
+"schemaVersion": 37,
+"style": "dark",
+"tags": \["Node.js", "Node Exporter", "Prometheus"],
+"templating": {"list": \[]},
+"time": {"from": "now-6h", "to": "now"},
+"timepicker": {},
+"timezone": "browser",
+"title": "App + Node Exporter Dashboard",
+"version":
